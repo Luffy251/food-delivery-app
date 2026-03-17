@@ -96,6 +96,13 @@ const LoginPopup = ({ setShowLogin }) => {
         {/* Error message */}
         {authError && <p className="login-popup-error">{authError}</p>}
 
+        {currentState === "Sign up" && (
+          <div className="login-popup-condition">
+            <input type="checkbox" required />
+            <p>By continuing, I agree to the terms of use &amp; privacy policy</p>
+          </div>
+        )}
+
         <button type="submit" disabled={loading}>
           {loading
             ? "Please wait..."
@@ -103,13 +110,6 @@ const LoginPopup = ({ setShowLogin }) => {
               ? "Create Account"
               : "Login"}
         </button>
-
-        {currentState === "Sign up" && (
-          <div className="login-popup-condition">
-            <input type="checkbox" required />
-            <p>By continuing, I agree to the terms of use &amp; privacy policy</p>
-          </div>
-        )}
 
         {currentState === "Login" ? (
           <p>
